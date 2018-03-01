@@ -4,18 +4,18 @@ var mongoose = require('mongoose'),
   Product = mongoose.model('Product');
 
 module.exports.getProduct = function(req, res, next) {
-  if (!Validations.isObjectId(req.params.productId)) {
+  if (!Validations.isObjectId(req.params.ProductId)) {
     return res.status(422).json({
       err: null,
-      msg: 'productId parameter must be a valid ObjectId.',
+      msg: 'ProductId parameter must be a valid ObjectId.',
       data: null
     });
   }
-  Product.findById(req.params.productId).exec(function(err, product) {
+  Product.findById(req.params.ProductId).exec(function(err, Product) {
     if (err) {
       return next(err);
     }
-    if (!product) {
+    if (!Product) {
       return res
         .status(404)
         .json({ err: null, msg: 'Product not found.', data: null });
@@ -23,20 +23,20 @@ module.exports.getProduct = function(req, res, next) {
     res.status(200).json({
       err: null,
       msg: 'Product retrieved successfully.',
-      data: product
+      data: Product
     });
   });
 };
 
 module.exports.getProducts = function(req, res, next) {
-  Product.find({}).exec(function(err, products) {
+  Product.find({}).exec(function(err, Products) {
     if (err) {
       return next(err);
     }
     res.status(200).json({
       err: null,
       msg: 'Products retrieved successfully.',
-      data: products
+      data: Products
     });
   });
 };
@@ -53,7 +53,7 @@ module.exports.getProductsBelowPrice = function(req, res, next) {
     price: {
       $lt: req.params.price
     }
-  }).exec(function(err, products) {
+  }).exec(function(err, Products) {
     if (err) {
       return next(err);
     }
@@ -63,7 +63,7 @@ module.exports.getProductsBelowPrice = function(req, res, next) {
         'Products priced below ' +
         req.params.price +
         ' retrieved successfully.',
-      data: products
+      data: Products
     });
   });
 };
@@ -74,6 +74,8 @@ module.exports.createProduct = function(req, res, next) {
     Validations.isString(req.body.name) &&
     req.body.price &&
     Validations.isNumber(req.body.price);
+    req.body.sellerName &&
+    Validations.isString(req.body.sellerName);
   if (!valid) {
     return res.status(422).json({
       err: null,
@@ -85,23 +87,23 @@ module.exports.createProduct = function(req, res, next) {
   delete req.body.createdAt;
   delete req.body.updatedAt;
 
-  Product.create(req.body, function(err, product) {
+  Product.create(req.body, function(err, Product) {
     if (err) {
       return next(err);
     }
     res.status(201).json({
       err: null,
       msg: 'Product was created successfully.',
-      data: product
+      data: Product
     });
   });
 };
 
 module.exports.updateProduct = function(req, res, next) {
-  if (!Validations.isObjectId(req.params.productId)) {
+  if (!Validations.isObjectId(req.params.ProductId)) {
     return res.status(422).json({
       err: null,
-      msg: 'productId parameter must be a valid ObjectId.',
+      msg: 'ProductId parameter must be a valid ObjectId.',
       data: null
     });
   }
@@ -122,7 +124,7 @@ module.exports.updateProduct = function(req, res, next) {
   req.body.updatedAt = moment().toDate();
 
   Product.findByIdAndUpdate(
-    req.params.productId,
+    req.params.ProductId,
     {
       $set: req.body
     },
@@ -145,14 +147,14 @@ module.exports.updateProduct = function(req, res, next) {
 };
 
 module.exports.deleteProduct = function(req, res, next) {
-  if (!Validations.isObjectId(req.params.productId)) {
+  if (!Validations.isObjectId(req.params.ProductId)) {
     return res.status(422).json({
       err: null,
-      msg: 'productId parameter must be a valid ObjectId.',
+      msg: 'ProductId parameter must be a valid ObjectId.',
       data: null
     });
   }
-  Product.findByIdAndRemove(req.params.productId).exec(function(
+  Product.findByIdAndRemove(req.params.ProductId).exec(function(
     err,
     deletedProduct
   ) {

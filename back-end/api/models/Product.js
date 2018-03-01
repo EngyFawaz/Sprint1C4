@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 
-var productSchema = mongoose.Schema({
+var ProductSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
     trim: true,
     lowercase: true
   },
+  
   price: {
     type: Number,
     required: true,
@@ -16,7 +17,17 @@ var productSchema = mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  updatedAt: Date
+  updatedAt: {
+    type: Date,
+    default: Date.now
+  },
+  sellername:{
+    type: String,
+    trim: true,
+    lowercase: true,
+    //required: true
+  }
+  
 });
 
-mongoose.model('Product', productSchema);
+mongoose.model('Product', ProductSchema);

@@ -1,6 +1,6 @@
 var express = require('express'),
   router = express.Router(),
-  productCtrl = require('../controllers/ProductController');
+  ProductCtrl = require('../controllers/ProductController');
 
   const authentication = require('../controllers/authentication')(router);
   app = express();
@@ -8,15 +8,15 @@ var express = require('express'),
 
 
 //-------------------------------Product Routes-----------------------------------
-router.get('/product/getProducts', productCtrl.getProducts);
-router.get('/product/getProduct/:productId', productCtrl.getProduct);
+router.get('/Product/getProducts', ProductCtrl.getProducts);
+router.get('/Product/getProduct/:ProductId', ProductCtrl.getProduct);
 router.get(
-  '/product/getProductsBelowPrice/:price',
-  productCtrl.getProductsBelowPrice
+  '/Product/getProductsBelowPrice/:price',
+  ProductCtrl.getProductsBelowPrice
 );
-router.post('/product/createProduct', productCtrl.createProduct);
-router.patch('/product/updateProduct/:productId', productCtrl.updateProduct);
-router.delete('/product/deleteProduct/:productId', productCtrl.deleteProduct);
+router.post('/Product/createProduct', ProductCtrl.createProduct);
+router.patch('/Product/updateProduct/:ProductId', ProductCtrl.updateProduct);
+router.delete('/Product/deleteProduct/:ProductId', ProductCtrl.deleteProduct);
 
 
 app.use('/authentication' , authentication);

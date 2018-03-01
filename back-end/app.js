@@ -15,7 +15,7 @@ router = express.Router(),
 
 app.set('secret', config.SECRET);
 
-app.use(logger(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
+app.use(logger(process.env.NODE_ENV === 'Production' ? 'combined' : 'dev'));
 app.use(
   cors({
     origin: true,
@@ -45,8 +45,8 @@ app.use('/api', routes);
 app.use(function(err, req, res, next) {
   if (err.statusCode === 404) return next();
   res.status(500).json({
-    // Never leak the stack trace of the err if running in production mode
-    err: process.env.NODE_ENV === 'production' ? null : err,
+    // Never leak the stack trace of the err if running in Production mode
+    err: process.env.NODE_ENV === 'Production' ? null : err,
     msg: '500 Internal Server Error',
     data: null
   });
