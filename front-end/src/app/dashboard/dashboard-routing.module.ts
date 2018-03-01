@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
-import { ToysComponent } from './toys/toys.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { ToysComponent } from './store/toys/toys.component';
+import { MyitemsComponent } from './myitems/myitems.component';
 
 const routes: Routes = [
 
@@ -14,15 +17,30 @@ const routes: Routes = [
       loadChildren : './about/about.module#AboutModule'
     },
     {
+      path:'myitems',
+      component: MyitemsComponent
+    },
+    {
       path:'items',
       loadChildren : './items/items.module#ItemsModule'
     },
+    { path: 'authe',
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+    {
+      path: 'signup',
+      component: SignupComponent
+    }
+  ]},
     {
       path: 'store',
       children: [
         {
           path: 'toystore',
-          //component: ToysComponent
+          component: ToysComponent
         },
         // {
         //   path: 'sportstore',

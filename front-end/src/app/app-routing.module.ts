@@ -8,11 +8,12 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import { LoginComponent } from './dashboard/auth/login/login.component';
 
 
 const routes: Routes = [
 
-  {
+  /*{
     path: 'auth',
     component: NbAuthComponent,
     children: [
@@ -42,7 +43,7 @@ const routes: Routes = [
       },
     ],
 
-  },
+  },*/
   {    path: 'dashboard',
     loadChildren: './dashboard/dashboard.module#DashboardModule'
   },

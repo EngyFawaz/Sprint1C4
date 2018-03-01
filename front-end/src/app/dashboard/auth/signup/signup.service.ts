@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 
 
 @Injectable()
-export class regService{
+export class SignupService{
     constructor(private http:Http){
         console.log('yalaa');
     }

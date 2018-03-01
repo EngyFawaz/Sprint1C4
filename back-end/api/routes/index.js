@@ -27,5 +27,7 @@ router.post('/member/createMember', memberCtrl.createMember);
 router.patch('/member/updateMember/:memberId', memberCtrl.updateMember);
 router.delete('/member/deleteMember/:memberId', memberCtrl.deleteMember);
 
+//------------------------------User Routes-----------------------------------
+
 
 module.exports = router;

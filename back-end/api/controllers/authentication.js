@@ -5,30 +5,31 @@ var mongoose = require('mongoose'),
   Validations = require('../utils/Validations'),
   hoba = mongoose.model('users'); 
 
+
 module.exports=(router) =>{
     
-    router.post('/register' , (req , res)=>{
+    router.post('users/register' , (req , res)=>{
         if(!req.body.email){
             res.json({
-                success:false , message: 'nooo'
+                success:false , message: 'check your Email'
             });
         }
         else {
-            if(!req.body.fullname){
+            if(!req.body.name){
                 res.json({
-                    success:false , message: 'noo1o'
+                    success:false , message: 'check your Name'
                     
                 });
             }
             else{
                 if(!req.body.password){
                     res.json({
-                        success:false , message: 'noo2o'
+                        success:false , message: 'your password is wrong'
                     });
                 }
                 else{
                     
-                    res.send('hell yeah')
+                    res.send('Sign up successfully')
 
                 }
                 
