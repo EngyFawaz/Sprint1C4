@@ -1,47 +1,47 @@
 var mongoose = require('mongoose'),
   moment = require('moment'),
   Validations = require('../utils/Validations'),
-  Product = mongoose.model('Product');
+  C4 = mongoose.model('C4');
 
-module.exports.getProduct = function(req, res, next) {
-  if (!Validations.isObjectId(req.params.ProductId)) {
+module.exports.getC4 = function(req, res, next) {
+  if (!Validations.isObjectId(req.params.C4Id)) {
     return res.status(422).json({
       err: null,
-      msg: 'ProductId parameter must be a valid ObjectId.',
+      msg: 'C4Id parameter must be a valid ObjectId.',
       data: null
     });
   }
-  Product.findById(req.params.ProductId).exec(function(err, Product) {
+  C4.findById(req.params.C4Id).exec(function(err, C4) {
     if (err) {
       return next(err);
     }
-    if (!Product) {
+    if (!C4) {
       return res
         .status(404)
-        .json({ err: null, msg: 'Product not found.', data: null });
+        .json({ err: null, msg: 'C4 not found.', data: null });
     }
     res.status(200).json({
       err: null,
-      msg: 'Product retrieved successfully.',
-      data: Product
+      msg: 'C4 retrieved successfully.',
+      data: C4
     });
   });
 };
 
-module.exports.getProducts = function(req, res, next) {
-  Product.find({}).exec(function(err, Products) {
+module.exports.getC4 = function(req, res, next) {
+  C4.find({}).exec(function(err, C4) {
     if (err) {
       return next(err);
     }
     res.status(200).json({
       err: null,
-      msg: 'Products retrieved successfully.',
-      data: Products
+      msg: 'C4s retrieved successfully.',
+      data: C4
     });
   });
 };
 
-module.exports.getProductsBelowPrice = function(req, res, next) {
+module.exports.getC4BelowPrice = function(req, res, next) {
   if (!Validations.isNumber(req.params.price)) {
     return res.status(422).json({
       err: null,
@@ -49,33 +49,36 @@ module.exports.getProductsBelowPrice = function(req, res, next) {
       data: null
     });
   }
-  Product.find({
+  C4.find({
     price: {
       $lt: req.params.price
     }
-  }).exec(function(err, Products) {
+  }).exec(function(err, C4) {
     if (err) {
       return next(err);
     }
     res.status(200).json({
       err: null,
       msg:
-        'Products priced below ' +
+        'C4s priced below ' +
         req.params.price +
         ' retrieved successfully.',
-      data: Products
+      data: C4
     });
   });
 };
 
-module.exports.createProduct = function(req, res, next) {
+module.exports.createC4 = function(req, res, next) {
   var valid =
     req.body.name &&
     Validations.isString(req.body.name) &&
     req.body.price &&
     Validations.isNumber(req.body.price);
+    req.body.component &&
+    Validations.isString(req.body.component);
     req.body.seller &&
     Validations.isString(req.body.seller);
+    
   if (!valid) {
     return res.status(422).json({
       err: null,
@@ -87,23 +90,23 @@ module.exports.createProduct = function(req, res, next) {
   delete req.body.createdAt;
   delete req.body.updatedAt;
 
-  Product.create(req.body, function(err, Product) {
+  C4.create(req.body, function(err, C4) {
     if (err) {
       return next(err);
     }
     res.status(201).json({
       err: null,
-      msg: 'Product was created successfully.',
-      data: Product
+      msg: 'C4 was created successfully.',
+      data: C4
     });
   });
 };
 
-module.exports.updateProduct = function(req, res, next) {
-  if (!Validations.isObjectId(req.params.ProductId)) {
+module.exports.updateC4 = function(req, res, next) {
+  if (!Validations.isObjectId(req.params.C4Id)) {
     return res.status(422).json({
       err: null,
-      msg: 'ProductId parameter must be a valid ObjectId.',
+      msg: 'C4Id parameter must be a valid ObjectId.',
       data: null
     });
   }
@@ -123,53 +126,53 @@ module.exports.updateProduct = function(req, res, next) {
   delete req.body.createdAt;
   req.body.updatedAt = moment().toDate();
 
-  Product.findByIdAndUpdate(
-    req.params.ProductId,
+  C4.findByIdAndUpdate(
+    req.params.C4Id,
     {
       $set: req.body
     },
     { new: true }
-  ).exec(function(err, updatedProduct) {
+  ).exec(function(err, updatedC4) {
     if (err) {
       return next(err);
     }
-    if (!updatedProduct) {
+    if (!updatedC4) {
       return res
         .status(404)
-        .json({ err: null, msg: 'Product not found.', data: null });
+        .json({ err: null, msg: 'C4 not found.', data: null });
     }
     res.status(200).json({
       err: null,
-      msg: 'Product was updated successfully.',
-      data: updatedProduct
+      msg: 'C4 was updated successfully.',
+      data: updatedC4
     });
   });
 };
 
-module.exports.deleteProduct = function(req, res, next) {
-  if (!Validations.isObjectId(req.params.ProductId)) {
+module.exports.deleteC4 = function(req, res, next) {
+  if (!Validations.isObjectId(req.params.C4Id)) {
     return res.status(422).json({
       err: null,
-      msg: 'ProductId parameter must be a valid ObjectId.',
+      msg: 'C4Id parameter must be a valid ObjectId.',
       data: null
     });
   }
-  Product.findByIdAndRemove(req.params.ProductId).exec(function(
+  C4.findByIdAndRemove(req.params.C4Id).exec(function(
     err,
-    deletedProduct
+    deletedC4
   ) {
     if (err) {
       return next(err);
     }
-    if (!deletedProduct) {
+    if (!deletedC4) {
       return res
         .status(404)
-        .json({ err: null, msg: 'Product not found.', data: null });
+        .json({ err: null, msg: 'C4 not found.', data: null });
     }
     res.status(200).json({
       err: null,
-      msg: 'Product was deleted successfully.',
-      data: deletedProduct
+      msg: 'C4 was deleted successfully.',
+      data: deletedC4
     });
   });
 };

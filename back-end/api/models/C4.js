@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var ProductSchema = mongoose.Schema({
+var C4chema = mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -21,13 +21,19 @@ var ProductSchema = mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  component: {
+    type: String,
+    trim: true,
+    lowercase: true,
+    required: true
+  },
   seller:{
     type: String,
     trim: true,
     lowercase: true,
-    //required: true
+    required: true
   }
   
 });
 
-mongoose.model('Product', ProductSchema);
+mongoose.model('C4', C4chema);

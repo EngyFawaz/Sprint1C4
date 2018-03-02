@@ -3,10 +3,9 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ToysService } from './toys.service'
 @Component({
   selector: 'app-toys',
-  template: '<ng2-smart-table [settings]="settings" [source]="data" (createConfirm)="onCreateCall($event)" (editConfirm)="onEditCall($event)" ></ng2-smart-table>',
+  template: '<ng2-smart-table [settings]="settings" [source]="data" (createConfirm)="onCreateCall($event)" (editConfirm)="onEditCall($event)" (deleteConfirm)="onDeleteCall($event)" ></ng2-smart-table>',
   providers: [ToysService]
 })
-// <ng2-smart-table [settings]="settings"></ng2-smart-table>
 export class ToysComponent implements OnInit {
   settings = {
     add: {
@@ -14,6 +13,9 @@ export class ToysComponent implements OnInit {
     },
     edit: {
       confirmSave: true,
+    },
+    delete:{
+      confirmDelete: true,
     },
     columns: {
       name: {
@@ -28,7 +30,10 @@ export class ToysComponent implements OnInit {
       updatedAt:{
         title: 'Updated At'
       },
-      sellername:{
+      component:{
+        title: 'Store'
+      },
+      seller:{
         title: 'Seller Name'
       }
     }
@@ -40,17 +45,24 @@ export class ToysComponent implements OnInit {
   }
   onCreateCall(event){
        event.confirm.resolve(event.newData);
-       this.toysService.createProduct(event.newData.name, event.newData.price, event.newData.sellername).subscribe();
+       this.toysService.createC4(event.newData.name, event.newData.price,event.newData.component,event.newData.seller).subscribe();
   }
   onEditCall(event){
-       event.confirm.resolve(event.newData);
-       this.toysService.updateProduct(event.newData.name, event.newData.price).subscribe();
-  }
+    event.confirm.resolve(event.newData);
+    this.toysService.updateC4(event.newData._id, event.newData.name, event.newData.price).subscribe();
+}
+
+onDeleteCall(event){
+ event.confirm.resolve(event.data._id);
+ console.log(event.data._id);
+ this.toysService.deleteC4(event.data._id).subscribe();
+}
   ngOnInit() {
-    this.toysService.getProducts().subscribe(
-      (res: Response) => {
-        console.log(res.data)
-        this.data = res.data;
+    this.toysService.getC4().subscribe(
+      (res: any) => {
+       // console.log(res.data)
+       if(res.hasOwnProperty('data')){
+        this.data = res.data;}
       }
     );
    }

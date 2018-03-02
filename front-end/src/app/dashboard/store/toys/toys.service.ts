@@ -7,16 +7,20 @@ export class ToysService {
 
   constructor(private httpClient: HttpClient) { }
 
-  createProduct(name:string, price:number, sellername: String) {
-    return this.httpClient.post(environment.apiUrl + 'Product/createProduct', {'name':name, 'price':price , 'sellername':sellername});
+  createC4(name:string, price:number, component:String , seller: String) {
+    return this.httpClient.post(environment.apiUrl + 'C4/createC4', {'name':name, 'price':price ,'component': component, 'seller':seller});
   }
 
-  getProducts(){
-    return this.httpClient.get(environment.apiUrl + 'Product/getProducts');
+  getC4(){
+    return this.httpClient.get(environment.apiUrl + 'C4/getC4');
   }
 
-  updateProduct(name:string, price:number) {
-    return this.httpClient.patch(environment.apiUrl + 'Product/updateProduct/:ProductId', {'name':name,'price':price});
+  updateC4(id:object, name:string, price:number) {
+    return this.httpClient.patch(environment.apiUrl + 'C4/updateC4/'+id,{'name':name, 'price':price});
+  }
+
+  deleteC4(id:object){
+    return this.httpClient.delete(environment.apiUrl+ 'C4/deleteC4/'+id);
   }
 
 }
