@@ -1,0 +1,65 @@
+[{
+	"_id": {
+		"$oid": "5a99a6742e82843628e15f0b"
+	},
+	"name": "Rubic's Cube",
+	"price": 25,
+	"seller": "Hassanin",
+	"createdAt": {
+		"$date": "2018-03-02T19:31:00.488Z"
+	},
+	"updatedAt": {
+		"$date": "2018-03-02T19:31:00.488Z"
+	},
+	"component": "C4",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5a99a68b2e82843628e15f0c"
+	},
+	"name": "LEGO Burj Khalifa",
+	"price": 1400,
+	"seller": "Hassanin",
+	"createdAt": {
+		"$date": "2018-03-02T19:31:23.811Z"
+	},
+	"updatedAt": {
+		"$date": "2018-03-02T19:31:23.811Z"
+	},
+	"component": "C4",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5a99a6972e82843628e15f0d"
+	},
+	"name": "oiof",
+	"price": 23,
+	"seller": "Hassanin",
+	"createdAt": {
+		"$date": "2018-03-02T19:31:35.528Z"
+	},
+	"updatedAt": {
+		"$date": "2018-03-02T19:31:35.528Z"
+	},
+	"component": "C4",
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5a99a6a02e82843628e15f0e"
+	},
+	"name": "lnifdoi",
+	"price": 36,
+	"seller": "Hassanin",
+	"createdAt": {
+		"$date": "2018-03-02T19:31:44.552Z"
+	},
+	"updatedAt": {
+		"$date": "2018-03-02T19:31:44.552Z"
+	},
+	"component": "C4",
+	"__v": 0
+}]
+
