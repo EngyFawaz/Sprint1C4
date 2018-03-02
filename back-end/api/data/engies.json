@@ -1,0 +1,81 @@
+[{
+	"_id": {
+		"$oid": "5a98986970d4c62d0ca95286"
+	},
+	"name": "barbie doll",
+	"price": 20,
+	"component": "c4",
+	"seller": "engy",
+	"createdAt": {
+		"$date": "2018-03-02T00:18:49.724Z"
+	},
+	"updatedAt": {
+		"$date": "2018-03-02T00:18:49.724Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5a98987770d4c62d0ca95287"
+	},
+	"name": "bike",
+	"price": 500,
+	"component": "c4",
+	"seller": "engy",
+	"createdAt": {
+		"$date": "2018-03-02T00:19:03.688Z"
+	},
+	"updatedAt": {
+		"$date": "2018-03-02T00:19:03.688Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5a98988d70d4c62d0ca95288"
+	},
+	"name": "rc car",
+	"price": 850,
+	"component": "c4",
+	"seller": "engy",
+	"createdAt": {
+		"$date": "2018-03-02T00:19:25.860Z"
+	},
+	"updatedAt": {
+		"$date": "2018-03-02T00:19:25.860Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5a9898ba70d4c62d0ca95289"
+	},
+	"name": "puzzle",
+	"price": 200,
+	"component": "c4",
+	"seller": "engy",
+	"createdAt": {
+		"$date": "2018-03-02T00:20:10.601Z"
+	},
+	"updatedAt": {
+		"$date": "2018-03-02T00:20:10.601Z"
+	},
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5a989a6d70d4c62d0ca9528a"
+	},
+	"name": "lego",
+	"price": 700,
+	"component": "c4",
+	"seller": "engy",
+	"createdAt": {
+		"$date": "2018-03-02T00:27:25.412Z"
+	},
+	"updatedAt": {
+		"$date": "2018-03-02T00:27:25.412Z"
+	},
+	"__v": 0
+}]
+
