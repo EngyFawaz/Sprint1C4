@@ -1,54 +1,55 @@
-{ 
-    "_id" : ObjectId("5a99979138e5cc89eea69f61"), 
+[{ 
+    "_id" : "5a99979138e5cc89eea69f61", 
     "name" : "TeadyBear", 
-    "price" : NumberInt(50), 
+    "price" : 50, 
     "seller" : "Monsef", 
-    "createdAt" : ISODate("2018-03-02T18:27:29.742+0000"), 
+    "createdAt" : "2018-03-02T18:27:29.742+0000", 
     "component" : "C4", 
-    "__v" : NumberInt(0)
-}
+    "__v" : 0
+},
 { 
-    "_id" : ObjectId("5a9997ae38e5cc89eea69f62"), 
+    "_id" : "5a9997ae38e5cc89eea69f62", 
     "name" : "Car", 
-    "price" : NumberInt(100), 
+    "price" : 100, 
     "seller" : "Monsef", 
-    "createdAt" : ISODate("2018-03-02T18:27:58.529+0000"), 
+    "createdAt" : "2018-03-02T18:27:58.529+0000", 
     "component" : "C4", 
-    "__v" : NumberInt(0)
-}
+    "__v" : 0
+},
 { 
-    "_id" : ObjectId("5a9997d038e5cc89eea69f63"), 
+    "_id" : "5a9997d038e5cc89eea69f63", 
     "name" : "Doll", 
-    "price" : NumberInt(80), 
+    "price" : 80, 
     "seller" : "Monsef", 
-    "createdAt" : ISODate("2018-03-02T18:28:32.412+0000"), 
+    "createdAt" : "2018-03-02T18:28:32.412+0000", 
     "component" : "C4", 
-    "__v" : NumberInt(0)
-}
+    "__v" : 0
+},
 { 
-    "_id" : ObjectId("5a9997e138e5cc89eea69f64"), 
+    "_id" : "5a9997e138e5cc89eea69f64", 
     "name" : "Lego", 
-    "price" : NumberInt(450), 
+    "price" : 450, 
     "seller" : "Monsef", 
-    "createdAt" : ISODate("2018-03-02T18:28:49.785+0000"), 
+    "createdAt" : "2018-03-02T18:28:49.785+0000", 
     "component" : "C4", 
-    "__v" : NumberInt(0)
-}
+    "__v" : 0
+},
 { 
-    "_id" : ObjectId("5a99980838e5cc89eea69f65"), 
+    "_id" : "5a99980838e5cc89eea69f65", 
     "name" : "Ball", 
-    "price" : NumberInt(70), 
+    "price" : 70, 
     "seller" : "Monsef", 
-    "createdAt" : ISODate("2018-03-02T18:29:28.443+0000"), 
+    "createdAt" : "2018-03-02T18:29:28.443+0000", 
     "component" : "C4", 
-    "__v" : NumberInt(0)
-}
+    "__v" : 0
+},
 { 
-    "_id" : ObjectId("5a99982c38e5cc89eea69f66"), 
+    "_id" : "5a99982c38e5cc89eea69f66", 
     "name" : "Puzzles", 
-    "price" : NumberInt(90), 
+    "price" : 90, 
     "seller" : "Monsef", 
-    "createdAt" : ISODate("2018-03-02T18:30:04.368+0000"), 
+    "createdAt" : "2018-03-02T18:30:04.368+0000", 
     "component" : "C4", 
-    "__v" : NumberInt(0)
+    "__v" : 0
 }
+]
